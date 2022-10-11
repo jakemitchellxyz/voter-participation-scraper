@@ -130,7 +130,7 @@ const etlVotingDataFromSpace = async () => {
 }
 
 // Answer Question 1
-const getTop20Voters = async () => {
+const getTop20Voters = () => {
   let top20Voters = []
 
   // helper variables to get the answer to the question
@@ -167,14 +167,14 @@ const getTop20Voters = async () => {
 }
 
 // Answer Question 2
-const getVotingRateFromAddress = async (address) => {
+const getVotingRateFromAddress = (address) => {
   const votingRate = countByAddress[address] / proposals.length
+
   console.log('UPenn Voting:', {
     address,
     votingRate,
     voteCount: countByAddress[address]
   })
-  return votingRate
 }
 
 /**
@@ -185,11 +185,11 @@ const start = async () => {
   await etlVotingDataFromSpace()
 
   // Ask Question 1
-  await getTop20Voters()
+  getTop20Voters()
 
   // Ask Question 2
-  await getVotingRateFromAddress(uPennAddress)
+  getVotingRateFromAddress(uPennAddress)
 }
 
 // starts here
-start()
+await start()
