@@ -7,8 +7,8 @@ const snapshotEndpoint = 'https://hub.snapshot.org/graphql'
 
 // global variables - built over the course of the process
 let proposals = []
-let addressByCount = {} // voter -> count
-let countByAddress = {} // count -> voters[]
+let addressByCount = {} // count -> voter_address[]
+let countByAddress = {} // voter_address -> count
 
 // helper method for the network requests
 const makeQuery = async (query) => {
